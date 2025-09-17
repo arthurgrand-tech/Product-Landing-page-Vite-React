@@ -385,6 +385,13 @@
   margin-bottom: 10px;
 }
 
+.price-amount {
+  font-size: 40px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1;
+}
+
 .dollar {
   font-size: 28px;
   font-weight: 700;
@@ -394,7 +401,7 @@
 }
 
 .amount {
-  font-size: 60px;
+  font-size: 40px;
   font-weight: 700;
   color: #333;
   line-height: 1;
@@ -434,7 +441,7 @@
 }
 
 .pricing-features-list li:first-child {
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 /* Responsive */
@@ -803,11 +810,34 @@ input[type="checkbox"]:checked::after {
   border-radius: 50%;
   color: #fff;
   font-size: 18px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .social-icon:hover {
-  background-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Individual social media colors on hover */
+.social-icon.facebook:hover {
+  background-color: #1877F2;
+}
+
+.social-icon.instagram:hover {
+  background: linear-gradient(45deg, #F56040, #E1306C, #C13584, #833AB4);
+}
+
+.social-icon.linkedin:hover {
+  background-color: #0A66C2;
+}
+
+.social-icon.twitter:hover {
+  background-color: #1DA1F2;
+}
+
+.social-icon.youtube:hover {
+  background-color: #FF0000;
 }
 
 .footer-links {
@@ -877,6 +907,23 @@ input[type="checkbox"]:checked::after {
 
 .footer a:hover {
   color: rgb(59, 98, 195);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-links {
+    justify-content: flex-start;
+    gap: 30px;
+  }
+  
+  .menu-column {
+    min-width: 150px;
+  }
 }
 
 /* ===== RESPONSIVE STYLES ===== */
