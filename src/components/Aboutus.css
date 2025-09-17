@@ -1,0 +1,81 @@
+
+.content .subtitle {
+    font-size: 16px;
+    color: #666;
+  }
+
+  .headline {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+
+  .headline span {
+    color: #ff4500;
+  }
+
+  .description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px ;
+  }
+  .get-started-btn,
+  .watch-demo-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .get-started-btn {
+    background: #ffa500;
+    color: #fff;
+  }
+
+  .get-started-btn:hover {
+    background: #ff8c00;
+  }
+
+  .watch-demo-btn {
+    background: #fff;
+    color: #ff4500;
+    border: 2px solid #ff4500;
+  }
+
+  .watch-demo-btn:hover {
+    background: #ff4500;
+    color: #fff;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .headline {
+      font-size: 28px;
+    }
+
+    .nav ul {
+      flex-direction: column;
+      gap: 10px;
+
+    }
+  }
+
+  .navlist div {
+    cursor: pointer;
+    color: black; /* Default color */
+    transition: color 0.3s ease;
+  }
+
+  .navlist div.active {
+    color: #FF6F61; /* Active page color */
+
+  }
+
+  .navlist div:hover {
+    color: #FF6F61; /* Hover effect for inactive pages */
+  }

@@ -1,0 +1,93 @@
+
+.top-landing-main{
+  background: linear-gradient(to right, #ffe4e1, #f8f8ff);
+  padding: 20px 25px 50px 25px;
+  color: #333;
+}
+
+.top-logo-main{
+  margin-left: 30px;
+}
+
+.top-logo-img{
+  height: 50px;
+  width: auto;
+
+}
+
+.request-demo-btn {
+  background: #ffa500;
+  color: #fff;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.top-landing-head-1{
+  /* margin-bottom: 20px; */
+}
+
+.login-btn{
+  color: rgb(7, 122, 237) !important;
+  font-weight: normal !important;
+}
+
+.login-btn:hover{
+  color: rgb(74, 44, 244) !important;
+}
+
+
+.top-right-btn{
+  margin-left: 300px;
+}
+
+@media screen and (min-width: 1920px) and (max-height: 1080px) {
+  .top-right-btn{
+    margin-left: 500px;
+  }
+
+}
+
+.navlist a {
+  cursor: pointer;
+  color: #333; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navlist a.active {
+  color: #ff4500; /* Active link color */
+
+}
+
+.navlist a:hover {
+  color: #FF6F61;; /* Hover effect */
+}
+
+.navlist {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.request-demo-btn {
+  background: #ffa500;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.request-demo-btn:hover {
+  background: #ff8c00;
+}
