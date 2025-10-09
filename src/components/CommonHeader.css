@@ -57,7 +57,7 @@
   text-decoration: none; /* Remove underline */
   margin: 0 10px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   transition: all 0.3s ease;
 }
 
@@ -90,4 +90,24 @@
 
 .request-demo-btn:hover {
   background: #ff8c00;
+}
+
+.nav-link-button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link-button:hover {
+  color:  #ff8c00 ;
+}
+
+
+.navlist .nav-link-button {
+  color-scheme:  #ff8c00;
 }

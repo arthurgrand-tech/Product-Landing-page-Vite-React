@@ -28,29 +28,44 @@ function Home() {
         image: "/api/placeholder/50/50"
     });
 
-    const defaultTestimonials = [
-        {
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-            rating: 5,
-            name: "Daniel Janis",
-            date: "10 Oct 2024",
-            image: "../images/AGTlogo"
-        },
-        {
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-            rating: 5,
-            name: "Christian Bendel",
-            date: "20 Nov 2024",
-            image: "/api/placeholder/50/50"
-        },
-        {
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-            rating: 5,
-            name: "Daniel Janis",
-            date: "10 Oct 2024",
-            image: "/api/placeholder/50/50"
-        }
-    ];
+const defaultTestimonials = [
+  {
+    text: "The platform has completely changed the way our team tracks time. Approvals are quick, and I can finally see where projects are really spending hours.",
+    rating: 5,
+    name: "Sarah Mitchell",
+    date: "02 Aug 2024",
+    image: "./images/reviewer-1.PNG"
+  },
+  {
+    text: "Very easy to use! I was able to onboard my small team in less than a day. Reports are clear, and billing clients is so much smoother now.",
+    rating: 5,
+    name: "David Chen",
+    date: "15 Sep 2024",
+    image: "./images/reviewer-2.PNG"
+  },
+  {
+    text: "I like the dashboard—it gives me a snapshot of everything without having to dig through multiple menus. Simple, clean, and reliable.",
+    rating: 4,
+    name: "Maria Gonzalez",
+    date: "28 Sep 2024",
+    image: "./images/reviewer-3.PNG"
+  },
+  {
+    text: "Customer support is excellent! I had an issue with timesheet approvals, and they solved it within an hour. That gave me confidence to roll it out to the whole company.",
+    rating: 5,
+    name: "James Patel",
+    date: "05 Oct 2024",
+    image: "./images/reviewer-4.PNG"
+  },
+  {
+    text: "We’ve tried a few time-tracking tools before, but this one is by far the most flexible. Projects and tasks are easy to manage, and my team actually likes using it.",
+    rating: 5,
+    name: "Emma Robinson",
+    date: "12 Oct 2024",
+    image: "./images/reviewer-5.PNG"
+  }
+];
+
 
     useEffect(() => {
         setTestimonials(defaultTestimonials);
@@ -138,9 +153,32 @@ function Home() {
         //     ]
         // },
         {
+            name: "FREE",
+            monthlyPrice: 0.00,
+            yearlyPrice: 0.00,
+            features: [
+                "Only 3 users free",
+                "Dashboard & quick links",
+                "Personal & team timesheets",
+                "Timesheet approvals",
+                "Timestamp based tracking",
+                "My reports & team reports",
+                "Project & task management",
+                "Customer management",
+                "Resource management",
+                "Resource group management",
+                "Vendor management",
+                // "Leave policy management",
+                "Audit logs",
+                // "In-app & email notifications",
+                "Data export (Excel/PDF)",
+                "Priority support",
+            ]
+        },
+                {
             name: "STANDARD",
-            monthlyPrice: 4.99,
-            yearlyPrice: 3.99,
+            monthlyPrice: 2.99,
+            yearlyPrice: 2.39,
             features: [
                 "Unlimited users (3 users free)",
                 "Dashboard & quick links",
@@ -150,11 +188,12 @@ function Home() {
                 "My reports & team reports",
                 "Project & task management",
                 "Customer management",
-                "Resource & group management",
+                "Resource management",
+                "Resource group management",
                 "Vendor management",
-                "Leave policy management",
+                // "Leave policy management",
                 "Audit logs",
-                "In-app & email notifications",
+                // "In-app & email notifications",
                 "Data export (Excel/PDF)",
                 "Priority support",
             ]
@@ -270,7 +309,7 @@ function Home() {
 
 
             {/* Why Choose Us Section */}
-            <section className="whychooseus-main">
+            <section id="whychooseus-section" className="whychooseus-main">
                 <div className="whychooseus-1">
                     <div className="why-choose-us-section">
                         <h2 className="section-title">
@@ -304,9 +343,9 @@ function Home() {
             <section className="pricing-container">
                 <div className="pricing-header">
                     <h2 className="pricing-title text-2xl md:text-3xl font-semibold mb-3">
-                        Our Pricing <span className="text-indigo-600">Plans</span>
+                        Our Pricing <span className="pricing-plan-text">Plans</span>
                     </h2>
-                    <p className="max-w-2xl mx-auto text-gray-600 leading-relaxed">
+                    <p className="max-w-2xl mx-auto text-gray-600 leading-relaxed mb-5">
                         Choose a plan that works best for you. <br />
                         <span className="font-medium text-gray-800">Pay monthly for flexibility</span>
                         or <span className="font-semibold text-green-600">go yearly and save 20% every month</span> —
@@ -343,16 +382,6 @@ function Home() {
                             <div className="plan-header">
                                 <h3 className="plan-name">{plan.name}</h3>
                             </div>
-                            {/* <div className="plan-pricing">
-                                <div className="price">
-                                    <span className="dollar">$</span>
-                                    <span className="amount">
-                                        {isYearly ? plan.yearlyPrice.toFixed(2) : plan.monthlyPrice.toFixed(2)}
-                                    </span>
-                                </div>
-                                <div className="period">PER USER / MONTH</div>
-                            </div> */}
-
                             <div className="plan-pricing">
                                 <div className="price">
                                     <span className="price-amount">
@@ -372,66 +401,12 @@ function Home() {
                     ))}
                 </div>
             </section>
-            {/* <section className="pricing-container">
-                <div className="pricing-header">
-                    <h2 className="pricing-title text-2xl md:text-3xl font-semibold mb-3">
-                        Our Pricing <span className="text-indigo-600">Plans</span>
-                    </h2>
-                    <p className="max-w-2xl mx-auto text-gray-600 leading-relaxed">
-                        Choose a plan that works best for you. <br />
-                        <span className="font-medium text-gray-800">Pay monthly for flexibility</span>
-                        or <span className="font-semibold text-green-600">go yearly and save 20% every month</span> —
-                        enjoy more value while unlocking all features.
-                    </p>
-
-                    <div className="toggle-container flex items-center justify-center gap-6 mt-6">
-                        <label className="flex items-center gap-2 cursor-pointer">
-                            <input
-                                type="checkbox"
-                                checked={!isYearly}
-                                onChange={() => setIsYearly(false)}
-                                className="accent-red-500 w-4 h-4"
-                            />
-                            <span className="text-gray-700 font-medium">Monthly</span>
-                        </label>
-                        <label className="flex items-center gap-2 cursor-pointer">
-                            <input
-                                type="checkbox"
-                                checked={isYearly}
-                                onChange={() => setIsYearly(true)}
-                                className="accent-indigo-600 w-4 h-4"
-                            />
-                            <span className="text-gray-700 font-medium">
-                                Yearly <span className="ml-1 text-green-600 font-semibold">(Save 20%)</span>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-                <div className="plans-grid">
-                    {pricingPlans.map((plan, index) => (
-                        <div key={index} className="plan-card">
-                            <h3 className="plan-name">{plan.name}</h3>
-                            <div className="price">
-                                <span className='dollar'>$</span>{isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                            </div>
-                            <div className="period">
-                                {isYearly ? 'Per user / Month' : 'Per user / Month'}
-                            </div>
-                            <ul className="pricing-features-list">
-                                {plan.features.map((feature, idx) => (
-                                    <li key={idx}>{feature}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-            </section> */}
-
+   
             {/* Features Section */}
-            <section className="features-section">
+            <section id="features-section" className="features-section">
                 <div className="features-header">
                     <h2>
-                        Our <span className="text-primary">Features</span>
+                        Our <span className="feature-text-primary">Features</span>
                     </h2>
                     <p>
                         Our timesheet solution is designed to streamline time tracking, improve accuracy, and enhance productivity across your organization.
@@ -463,143 +438,6 @@ function Home() {
             </section>
 
 
-
-            {/* Success Stories Section */}
-            <section className="success-section mb-5">
-                <div className="success-header">
-                    <h2>Our Success <span className="highlight">Stories</span></h2>
-                </div>
-
-                <div className="position-relative">
-                    <div className="success-container">
-                        <div className="d-flex navigation-buttons">
-                            <button
-                                className="navigation-btn prev"
-                                onClick={handlePrev}
-                                disabled={currentIndex === 0}
-                            >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <button
-                                className="navigation-btn next"
-                                onClick={handleNext}
-                                disabled={currentIndex >= testimonials.length - 3}
-                            >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div className="cards-container">
-                            <div
-                                className="cards-slider"
-                                style={{
-                                    transform: `translateX(-${currentIndex * (100 / 3)}%)`,
-                                    transition: 'transform 0.3s ease-in-out'
-                                }}
-                            >
-                                {testimonials.map((testimonial, index) => (
-                                    <div
-                                        key={index}
-                                        className={`review-card ${index === currentIndex ? 'purple-bg' : 'white-bg'}`}
-                                    >
-                                        <p className="review-text">{testimonial.text}</p>
-
-                                        <div className="rating">
-                                            {[1, 2, 3, 4, 5].map((star) => (
-                                                <StarDisplay key={star} filled={star <= testimonial.rating} />
-                                            ))}
-                                        </div>
-
-                                        <div className="reviewer-info">
-                                            <img
-                                                src={testimonial.image}
-                                                alt={testimonial.name}
-                                                className="reviewer-img"
-                                            />
-                                            <div>
-                                                <h4 className="reviewer-name">{testimonial.name}</h4>
-                                                <p className="review-date">{testimonial.date}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    <button
-                        className="write-review-btn"
-                        onClick={() => setShowReviewForm(true)}
-                    >
-                        Write Review
-                    </button>
-                </div>
-
-                {showReviewForm && (
-                    <div className="review-modal">
-                        <div className="review-modal-content">
-                            <form onSubmit={handleSubmitReview}>
-                                <div className="modal-header">
-                                    <h3>Write Your Review</h3>
-                                    <button
-                                        type="button"
-                                        className="close-btn"
-                                        onClick={() => setShowReviewForm(false)}
-                                    >×</button>
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="name-input">Your Name</label>
-                                    <input
-                                        id="name-input"
-                                        type="text"
-                                        value={newReview.name}
-                                        onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="review-input">Your Review</label>
-                                    <textarea
-                                        id="review-input"
-                                        rows="4"
-                                        value={newReview.text}
-                                        onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
-                                        required
-                                    ></textarea>
-                                </div>
-
-                                <div className="form-group">
-                                    <label>Rating</label>
-                                    <RatingInput
-                                        value={newReview.rating}
-                                        onChange={(rating) => setNewReview({ ...newReview, rating: rating })}
-                                    />
-                                    {newReview.rating === 0 && (
-                                        <small className="rating-hint">Please select a rating</small>
-                                    )}
-                                </div>
-
-                                <div className="modal-footer">
-                                    <button type="submit" className="submit-btn">Submit Review</button>
-                                    <button
-                                        type="button"
-                                        className="cancel-btn"
-                                        onClick={() => setShowReviewForm(false)}
-                                    >Cancel</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                )}
-            </section>
-
-            {/* Footer Section */}
             {/* Footer Section */}
             <footer className="footer">
                 <div className='mt-4'>
@@ -641,7 +479,7 @@ function Home() {
                         </div>
 
                         <div className="footer-links">
-                            <div className="menu-column">
+                            {/* <div className="menu-column">
                                 <h3>Quick Links</h3>
                                 <ul>
                                     <li><a href="https://arthurgrand.com" target="_blank" rel="noopener noreferrer">Home</a></li>
@@ -649,18 +487,18 @@ function Home() {
                                     <li><a href="https://arthurgrand.com/features" target="_blank" rel="noopener noreferrer">Features</a></li>
                                     <li><a href="https://arthurgrand.com/resources" target="_blank" rel="noopener noreferrer">Resources</a></li>
                                 </ul>
-                            </div>
+                            </div> */}
 
                             <div className="menu-column">
                                 <h3>Company</h3>
                                 <ul>
                                     <li><a href="https://arthurgrand.com/about" target="_blank" rel="noopener noreferrer">About Us</a></li>
-                                    <li><a href="https://arthurgrand.com/services" target="_blank" rel="noopener noreferrer">Services</a></li>
-                                    <li><a href="https://arthurgrand.com/contact" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
+                                    {/* <li><a href="https://arthurgrand.com/services" target="_blank" rel="noopener noreferrer">Services</a></li>
+                                    <li><a href="https://arthurgrand.com/contact" target="_blank" rel="noopener noreferrer">Contact Us</a></li> */}
                                 </ul>
                             </div>
 
-                            <div className="menu-column">
+                            {/* <div className="menu-column">
                                 <h3>Legal</h3>
                                 <ul>
                                     <li><a href="https://arthurgrand.com/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
@@ -676,7 +514,7 @@ function Home() {
                                     <li><a href="https://arthurgrand.com/faq" target="_blank" rel="noopener noreferrer">FAQ</a></li>
                                     <li><a href="https://arthurgrand.com/support" target="_blank" rel="noopener noreferrer">Support</a></li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
@@ -690,3 +528,4 @@ function Home() {
 }
 
 export default Home;
+

@@ -1,0 +1,135 @@
+
+{/* Success Stories Section */ }
+<section className="success-section mb-5">
+    <div className="success-header">
+        <h2>Our Success <span className="highlight">Stories</span></h2>
+    </div>
+
+    <div className="position-relative">
+        <div className="success-container">
+            <div className="d-flex navigation-buttons">
+                <button
+                    className="navigation-btn prev"
+                    onClick={handlePrev}
+                    disabled={currentIndex === 0}
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    className="navigation-btn next"
+                    onClick={handleNext}
+                    disabled={currentIndex >= testimonials.length - 3}
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <div className="cards-container">
+                <div
+                    className="cards-slider"
+                    style={{
+                        transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+                        transition: 'transform 0.3s ease-in-out'
+                    }}
+                >
+                    {testimonials.map((testimonial, index) => (
+                        <div
+                            key={index}
+                            className={`review-card ${index === currentIndex ? 'purple-bg' : 'white-bg'}`}
+                        >
+                            <p className="review-text">{testimonial.text}</p>
+
+                            <div className="rating">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <StarDisplay key={star} filled={star <= testimonial.rating} />
+                                ))}
+                            </div>
+
+                            <div className="reviewer-info">
+                                <img
+                                    src={testimonial.image}
+                                    alt={testimonial.name}
+                                    className="reviewer-img"
+                                />
+                                <div>
+                                    <h4 className="reviewer-name">{testimonial.name}</h4>
+                                    <p className="review-date">{testimonial.date}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <button
+            className="write-review-btn"
+            onClick={() => setShowReviewForm(true)}
+        >
+            Write Review
+        </button>
+    </div>
+
+    {showReviewForm && (
+        <div className="review-modal">
+            <div className="review-modal-content">
+                <form onSubmit={handleSubmitReview}>
+                    <div className="modal-header">
+                        <h3>Write Your Review</h3>
+                        <button
+                            type="button"
+                            className="close-btn"
+                            onClick={() => setShowReviewForm(false)}
+                        >×</button>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="name-input">Your Name</label>
+                        <input
+                            id="name-input"
+                            type="text"
+                            value={newReview.name}
+                            onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="review-input">Your Review</label>
+                        <textarea
+                            id="review-input"
+                            rows="4"
+                            value={newReview.text}
+                            onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div className="form-group">
+                        <label>Rating</label>
+                        <RatingInput
+                            value={newReview.rating}
+                            onChange={(rating) => setNewReview({ ...newReview, rating: rating })}
+                        />
+                        {newReview.rating === 0 && (
+                            <small className="rating-hint">Please select a rating</small>
+                        )}
+                    </div>
+
+                    <div className="modal-footer">
+                        <button type="submit" className="submit-btn">Submit Review</button>
+                        <button
+                            type="button"
+                            className="cancel-btn"
+                            onClick={() => setShowReviewForm(false)}
+                        >Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )}
+</section>
