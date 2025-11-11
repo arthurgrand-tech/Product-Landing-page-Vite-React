@@ -5,7 +5,7 @@ import orangeimage from "./images/orange-png-landing.png"
 import productimagetop from "./images/product-image1.png"
 import featureimage from "./images/product-image2.png"
 import demoVideo from "./Video/Timesheet-Demo.mp4"
-import logo from "./images/AGTlogo-white.png"
+// import logo from "./images/AGTlogo-white.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -421,10 +421,10 @@ const defaultTestimonials = [
                     <div className="footer-content">
                         <div className="footer-logo">
                             <div className="footer-image">
-                                <img className="footer-image1 mb-2" src={logo} alt="Logo" />
+                                {/* <img className="footer-image1 mb-2" src={logo} alt="Logo" /> */}
                             </div>
                             <p>
-                                Arthur Grand (AG) is an IT services firm specializing in Digital Transformation initiatives for Federal, Commercial, State & local customers.
+                                Thirno is an IT services firm specializing in Digital Transformation initiatives for Federal, Commercial, State & local customers.
                             </p>
                             <div className="social-links">
                                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon facebook" aria-label="Facebook">
@@ -469,7 +469,7 @@ const defaultTestimonials = [
                             <div className="menu-column">
                                 <h3>Company</h3>
                                 <ul>
-                                    <li><a href="https://arthurgrand.com/about" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                                    <li><a href="" target="_blank" rel="noopener noreferrer">About Us</a></li>
                                     {/* <li><a href="https://arthurgrand.com/services" target="_blank" rel="noopener noreferrer">Services</a></li>
                                     <li><a href="https://arthurgrand.com/contact" target="_blank" rel="noopener noreferrer">Contact Us</a></li> */}
                                 </ul>

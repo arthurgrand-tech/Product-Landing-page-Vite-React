@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CustomerQuery.css";
 import { Helmet } from "react-helmet-async";
-import logo from "./images/AGTlogo-white.png";
+// import logo from "./images/AGTlogo-white.png";
 
 function CustomerQuery() {
   const [formData, setFormData] = useState({
@@ -283,7 +283,7 @@ function CustomerQuery() {
           <div className="footer-content">
             <div className="footer-logo">
               <div className="footer-image">
-                <img className="footer-image1 mb-2" src={logo} alt="Arthur Grand Technologies Logo" />
+                {/* <img className="footer-image1 mb-2" src={logo} alt="Arthur Grand Technologies Logo" /> */}
               </div>
               <p>
                 Arthur Grand (AG) is an IT services firm specializing in Digital Transformation initiatives for Federal, Commercial, State & local customers.
