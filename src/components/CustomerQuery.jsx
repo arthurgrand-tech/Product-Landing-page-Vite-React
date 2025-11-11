@@ -4,41 +4,30 @@ import { Helmet } from "react-helmet-async";
 import logo from "./images/AGTlogo-white.png";
 
 function CustomerQuery() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    workEmail: "",
-    mobileNumber: "",
-    companyName: "",
-    companySize: "",
-    queryType: "Request Demo",
-    comments: ""
-  });
+  const [result, setResult] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your query! We'll get back to you soon.");
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
     
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      workEmail: "",
-      mobileNumber: "",
-      companyName: "",
-      companySize: "",
-      queryType: "Request Demo",
-      comments: ""
+    const formData = new FormData(event.target);
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
     });
+
+    const data = await response.json();
+    
+    if (data.success) {
+      setResult("Form Submitted Successfully! We'll get back to you soon.");
+      event.target.reset();
+      setTimeout(() => setResult(""), 5000);
+    } else {
+      console.log("Error", data);
+      setResult(data.message || "Error submitting form. Please try again.");
+    }
   };
 
   return (
@@ -48,24 +37,16 @@ function CustomerQuery() {
         <meta name="description" content="Have questions about our timesheet management solution? Contact us to learn how we simplify workforce management, enhance productivity, and ensure compliance." />
         <meta name="keywords" content="timesheet app, customer query, contact timesheet, workforce management, time tracking support, timesheet solution inquiry" />
         <meta name="author" content="Timesheet App" />
-        
-        {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Customer Query - Timesheet App" />
         <meta property="og:description" content="Discover how our timesheet solution simplifies workforce management and enhances productivity." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yourwebsite.com/customer-query" />
         <meta property="og:image" content="https://yourwebsite.com/images/customer-query-og.jpg" />
-        
-        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Customer Query - Timesheet App" />
         <meta name="twitter:description" content="Get in touch with us to learn about our timesheet management solution." />
         <meta name="twitter:image" content="https://yourwebsite.com/images/customer-query-twitter.jpg" />
-        
-        {/* Canonical URL */}
         <link rel="canonical" href="https://yourwebsite.com/customer-query" />
-        
-        {/* Structured Data - Organization */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -84,20 +65,18 @@ function CustomerQuery() {
 
       <main className="query-main-content">
         <div className="contactus-header">
-        <header className="query-header">
-          <h1 className="query-title">Customer Query</h1>
-          <p className="query-subtitle">
-            Discover how our timesheet solution simplifies workforce management, enhances productivity, and ensures compliance with ease.
-          </p>
-        </header>
+          <header className="query-header">
+            <h1 className="query-title">Customer Query</h1>
+            <p className="query-subtitle">
+              Discover how our timesheet solution simplifies workforce management, enhances productivity, and ensures compliance with ease.
+            </p>
+          </header>
         </div>
 
         <section className="query-content">
-          {/* Left Section - What we offer */}
           <article className="offer-section">
             <p className="offer-label">DISCOVER OUR EDGE</p>
             <h2 className="offer-title">What we offer?</h2>
-
             <div className="offer-items">
               <div className="offer-item">
                 <div className="offer-icon clock-icon" aria-hidden="true">
@@ -139,16 +118,20 @@ function CustomerQuery() {
                 <div className="offer-content">
                   <h3 className="offer-item-title">Compliance Guaranteed</h3>
                   <p className="offer-item-description">
-                    Ensure your timesheets meet industry standards and regulatory requirements effortlessly. Our platform is designed to align with compliance protocols, BI reducing risk and ensuring audit readiness.
+                    Ensure your timesheets meet industry standards and regulatory requirements effortlessly. Our platform is designed to align with compliance protocols, reducing risk and ensuring audit readiness.
                   </p>
                 </div>
               </div>
             </div>
           </article>
 
-          {/* Right Section - Form */}
           <aside className="form-section">
-            <form onSubmit={handleSubmit} className="query-form" aria-label="Customer Query Form">
+            <form onSubmit={onSubmit} className="query-form" aria-label="Customer Query Form">
+              {/* Hidden fields for Web3Forms configuration */}
+              <input type="hidden" name="subject" value="New Customer Query from Timesheet App" />
+              <input type="hidden" name="from_name" value="Timesheet App Contact Form" />
+              <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex="-1" />
+
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First Name</label>
@@ -157,13 +140,10 @@ function CustomerQuery() {
                     id="firstName"
                     name="firstName"
                     placeholder="John"
-                    value={formData.firstName}
-                    onChange={handleChange}
                     required
                     aria-required="true"
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="lastName">Last Name</label>
                   <input
@@ -171,8 +151,6 @@ function CustomerQuery() {
                     id="lastName"
                     name="lastName"
                     placeholder="Oliver"
-                    value={formData.lastName}
-                    onChange={handleChange}
                     required
                     aria-required="true"
                   />
@@ -186,23 +164,18 @@ function CustomerQuery() {
                     type="email"
                     id="workEmail"
                     name="workEmail"
-                    placeholder="john@gmail.com"
-                    value={formData.workEmail}
-                    onChange={handleChange}
+                    placeholder="john@company.com"
                     required
                     aria-required="true"
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="mobileNumber">Mobile Number</label>
                   <input
                     type="tel"
                     id="mobileNumber"
                     name="mobileNumber"
-                    placeholder="Apple INC."
-                    value={formData.mobileNumber}
-                    onChange={handleChange}
+                    placeholder="+1 234 567 8900"
                     required
                     aria-required="true"
                   />
@@ -216,23 +189,18 @@ function CustomerQuery() {
                     type="text"
                     id="companyName"
                     name="companyName"
-                    placeholder="Software Engineer"
-                    value={formData.companyName}
-                    onChange={handleChange}
+                    placeholder="Apple INC."
                     required
                     aria-required="true"
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="companySize">Company Size</label>
                   <input
                     type="text"
                     id="companySize"
                     name="companySize"
-                    placeholder="Chicago"
-                    value={formData.companySize}
-                    onChange={handleChange}
+                    placeholder="1-50 employees"
                     required
                     aria-required="true"
                   />
@@ -244,8 +212,6 @@ function CustomerQuery() {
                 <select
                   id="queryType"
                   name="queryType"
-                  value={formData.queryType}
-                  onChange={handleChange}
                   required
                   aria-required="true"
                 >
@@ -261,9 +227,7 @@ function CustomerQuery() {
                 <textarea
                   id="comments"
                   name="comments"
-                  placeholder=""
-                  value={formData.comments}
-                  onChange={handleChange}
+                  placeholder="Tell us more about your requirements..."
                   rows="4"
                   aria-label="Enter your comments or questions"
                 />
@@ -272,12 +236,17 @@ function CustomerQuery() {
               <button type="submit" className="submit-button" aria-label="Submit Query">
                 Submit
               </button>
+
+              {result && (
+                <div className={`form-result-message ${result.includes("Successfully") ? "success" : ""}`}>
+                  {result}
+                </div>
+              )}
             </form>
           </aside>
         </section>
       </main>
 
-      {/* Footer Section */}
       <footer className="footer" role="contentinfo">
         <div className="footer-wrapper">
           <div className="footer-content">
@@ -316,7 +285,6 @@ function CustomerQuery() {
                 </a>
               </nav>
             </div>
-
             <nav className="footer-links" aria-label="Footer Navigation">
               <div className="menu-column">
                 <h3>Company</h3>
@@ -326,7 +294,6 @@ function CustomerQuery() {
               </div>
             </nav>
           </div>
-
           <div className="footer-bottom">
             <p>Copyright © 2024 All rights reserved</p>
           </div>
