@@ -6,7 +6,7 @@ import Home from "./components/Home"
 import CommonHeader from "./components/CommonHeader"
 import Features from "./components/Features"
 import Aboutus from "./components/Aboutus"
-import Contactus from "./components/Contactus"
+import Contactus from "./components/CustomerQuery"
 
 
 
@@ -19,7 +19,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/features" element={<Features />} />
         <Route path="/aboutus" element={<Aboutus />} />
-        <Route path="/contactus" element={<Contactus />} />
+        <Route path="/CustomerQuery" element={<Contactus />} />
       </Routes>
     </Router>
   );

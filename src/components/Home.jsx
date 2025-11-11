@@ -129,29 +129,6 @@ const defaultTestimonials = [
     ];
 
     const pricingPlans = [
-        // {
-        //     name: "FREE",
-        //     monthlyPrice: 0,
-        //     yearlyPrice: 0,
-        //     features: [
-        //         "3 users (limited)",
-        //         "1 projects (limited)",
-        //         "Dashboard & quick links",
-        //         "Personal & team timesheets",
-        //         "Timesheet approvals",
-        //         "My reports & team reports",
-        //         "Project & task management",
-        //         "Customer management",
-        //         "Resource & group management",
-        //         "Vendor management",
-        //         "Leave policy management",
-        //         "Audit logs",
-        //         "In-app & email notifications",
-        //         "Data export (Excel/PDF)",
-        //         "Priority support (limited)",
-
-        //     ]
-        // },
         {
             name: "FREE",
             monthlyPrice: 0.00,
