@@ -286,7 +286,7 @@ function CustomerQuery() {
                 {/* <img className="footer-image1 mb-2" src={logo} alt="Arthur Grand Technologies Logo" /> */}
               </div>
               <p>
-                Arthur Grand (AG) is an IT services firm specializing in Digital Transformation initiatives for Federal, Commercial, State & local customers.
+                Thirno s an IT services firm specializing in Digital Transformation initiatives for Federal, Commercial, State & local customers.
               </p>
               <nav className="social-links" aria-label="Social Media Links">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon facebook" aria-label="Visit our Facebook page">
@@ -321,7 +321,7 @@ function CustomerQuery() {
               <div className="menu-column">
                 <h3>Company</h3>
                 <ul>
-                  <li><a href="https://arthurgrand.com/about" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                  <li><a href="" target="_blank" rel="noopener noreferrer">About Us</a></li>
                 </ul>
               </div>
             </nav>

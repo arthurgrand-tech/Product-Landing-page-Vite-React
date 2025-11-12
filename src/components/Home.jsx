@@ -424,7 +424,7 @@ const defaultTestimonials = [
                                 {/* <img className="footer-image1 mb-2" src={logo} alt="Logo" /> */}
                             </div>
                             <p>
-                                Thirno is an IT services firm specializing in Digital Transformation initiatives for Federal, Commercial, State & local customers.
+                               Thirno s an IT services firm specializing in Digital Transformation initiatives for Federal, Commercial, State & local customers.
                             </p>
                             <div className="social-links">
                                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon facebook" aria-label="Facebook">
