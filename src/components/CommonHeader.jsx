@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./CommonHeader.css";
-import timesheetlogo from "./images/timesheet-logo.png";
+// import logo from "./images/thirno-new-logo.png"
+import logohome from "./images/thirno-logo-2.png"
 
 function CommonHeader() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function CommonHeader() {
     <div className="top-landing-main">
       <div className="top-landing-head-1 d-flex justify-content-between">
         <div className="top-logo-main">
-          <img className="top-logo-img" src={timesheetlogo} alt="Logo" />
+          <img className="top-logo-img" src={logohome} alt="Logo" width={100} height={100} />
         </div>
 
         <div className="navlist">
