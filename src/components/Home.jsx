@@ -1126,7 +1126,7 @@ const defaultTestimonials = [
             monthlyPrice: 0.00,
             yearlyPrice: 0.00,
             features: [
-                "Only 3 users free",
+                "First 3 users free",
                 "Dashboard & quick links",
                 "Personal & team timesheets",
                 "Timesheet approvals",
@@ -1149,7 +1149,7 @@ const defaultTestimonials = [
             monthlyPrice: 2.99,
             yearlyPrice: 2.39,
             features: [
-                "Unlimited users (3 users free)",
+                "Unlimited users (First 3 users free)",
                 "Dashboard & quick links",
                 "Personal & team timesheets",
                 "Timesheet approvals",
